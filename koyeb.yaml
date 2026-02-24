@@ -1,0 +1,24 @@
+name: rucoy-bot
+services:
+- name: bot
+  type: web
+  instance_type: nano
+  git:
+    repository: YOUR_GITHUB_USERNAME/rucoy-bot
+    branch: main
+  build_command: pip install -r requirements.txt
+  run_command: python main.py
+  ports:
+  - port: 8000
+    protocol: http
+  env:
+  - name: BOT_TOKEN
+    value: "YOUR_BOT_TOKEN"
+  - name: ADMIN_IDS
+    value: "123456789,987654321"
+  - name: OWNER_ID
+    value: "YOUR_TELEGRAM_ID"
+  - name: PORT
+    value: "8000"
+  - name: KOYEB_APP_NAME
+    value: "rucoy-bot"
